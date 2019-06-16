@@ -9,15 +9,11 @@ def get_stock_list():
     return stock_list
 
 
-def get_stock_daily_data1():
-    df = tushare.pro_bar(ts_code='000001.SZ', adj='qfq', start_date='20180101', end_date='20181011')
-    return df
-
-
 def get_stock_daily_data(ts_code, start_date, end_date):
     df = pro.daily(ts_code=ts_code, start_date=start_date, end_date=end_date)
     return df
 
 
 if __name__ == "__main__":
-    print get_stock_daily_data('000001.SZ', '20190101', '20190614')
+    #print get_stock_daily_data('000001.SZ', '20190101', '20190614')
+    print get_stock_list()['ts_code']
