@@ -6,7 +6,7 @@ def read_stocks(ts_codes):
     db = MySQLdb.connect("localhost", "root", "password", "stock", charset='utf8')
     code_price_dict = dict()
     for ts_code in ts_codes:
-        sql = "SELECT * FROM stock WHERE ts_code='" + ts_code + "';"
+        sql = "SELECT * FROM stock WHERE ts_code='" + ts_code + "' AND trade_date > 20190101;"
         df = pd.read_sql(sql, con=db)
         code_price_dict[ts_code] = df
     db.close()
